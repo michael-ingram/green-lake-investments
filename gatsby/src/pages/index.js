@@ -1,16 +1,13 @@
 import React from 'react';
 import HomePageStyles from '../styles/HomePageStyles';
 import SEO from '../components/SEO';
+import logo from '../assets/images/logo.svg';
 
 export default function HomePage() {
   return (
     <HomePageStyles>
-      <SEO />
-      <div className="title-outer-container">
-        <div className="title-inner-container">
-          <h1 className="title">Green Lake Investments</h1>
-        </div>
-      </div>
+      <SEO title="Home" />
+      <img className="logo" src={logo} alt="logo" />
     </HomePageStyles>
   );
 }

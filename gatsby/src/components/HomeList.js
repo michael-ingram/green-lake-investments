@@ -7,11 +7,20 @@ const HomeListStyles = styled.div`
   display: grid;
   grid-template-rows: 600px;
   grid-auto-rows: 600px;
+  @media(max-width: 1000px){
+    //grid-template-rows: 1fr 1fr;
+    grid-template-rows: minmax(500px, 1000px);
+    grid-auto-rows: minmax(500px, 1000px);
+  }
 `;
 
 const ListingStyle = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @media(max-width: 1000px){
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
   .home-image {
     border-radius: 20px;
     margin: 20px;

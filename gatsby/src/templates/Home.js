@@ -31,7 +31,7 @@ export default function SinglePageHome({ data }) {
             ))}
           </div>
           <div className="home-details">
-            <h5>Rent: {data.home.rent}</h5>
+            <h5>Rent: ${data.home.rent}</h5>
             <h5>Square Feet: {data.home.squarefeet}</h5>
             <h5>Beds: {data.home.beds}</h5>
             <h5>Baths: {data.home.baths}</h5>

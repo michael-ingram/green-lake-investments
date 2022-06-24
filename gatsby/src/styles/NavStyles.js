@@ -11,17 +11,24 @@ const NavStyles = styled.nav`
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 1rem;
     align-items: center;
+    @media(max-width: 800px){
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 1fr 1fr;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
   }
   li {
-    order: 1;
-    &:nth-child(1) {
+    @media(max-width: 800px){
+      grid-column: span 2;
+      &:last-child:nth-child(3n - 2) {
+        grid-column: -2;
+      }
+      &:nth-last-child(2):nth-child(3n + 1) {
+      grid-column-end: 4;
+      }
     }
-    &:nth-child(2) {
-    }
-    &:nth-child(4) {
-    }
-    &:hover {
-    }
+    
   }
   .active {
     color: var(--lightgreen);

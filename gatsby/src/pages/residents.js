@@ -3,18 +3,22 @@ import { graphql, Link } from 'gatsby';
 import ResidentPageStyles from '../styles/ResidentPageStyles';
 import SEO from '../components/SEO';
 import useForm from '../utils/useForm';
-import useInfo from "../utils/useInfo";
+import useInfo from '../utils/useInfo';
+import Success from "../components/Sucess";
 
 export default function ResidentsPage({ data }) {
   const forms = data.forms.nodes;
   const { values, updateValue } = useForm({
     name: '',
     email: '',
-    phoneNumber: '123-456-7890',
-    property: '123 Something Street',
+    phoneNumber: 'xxx-xxx-xxxx',
+    property: '',
     maintenanceReq: '',
   });
   const { error, loading, message, submitRequest } = useInfo({ values });
+  if (message) {
+    return <Success title="Current & Future Residents" />;
+  }
   return (
     <ResidentPageStyles onSubmit={submitRequest}>
       <SEO title="Residents" />
@@ -25,29 +29,31 @@ export default function ResidentsPage({ data }) {
             <h2>Future Residents</h2>
             <h5 className="app-form">Application Form:</h5>
             <button>
-              <a
-                href={`${forms[0].file.asset.url}`}
-              >
-                Download
-              </a>
+              <a href={`${forms[0].file.asset.url}`}>Download</a>
             </button>
             <h2>Current Residents</h2>
             <h5 className="maintenance-req">
-              Submit a Maintenance Request Below:
+              Submit A Maintenance Request Below:
             </h5>
             <form>
               <fieldset disabled={loading}>
-                <label htmlFor="name" aria-required>
-                  Name:
-                </label>
-                <input type="text" name="name" value={ values.name } onChange={updateValue}/>
+                <label htmlFor="name">Name:</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={values.name}
+                  onChange={updateValue}
+                />
                 <br />
-                <label htmlFor="email" aria-required>
-                  Email:
-                </label>
-                <input type="email" name="email" value={ values.email } onChange={updateValue}/>
+                <label htmlFor="email">Email:</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={values.email}
+                  onChange={updateValue}
+                />
                 <br />
-                <label htmlFor="phoneNumber">Phone Number: </label>
+                <label htmlFor="phoneNumber">Phone Number:</label>
                 <input
                   type="tel"
                   name="phoneNumber"
@@ -57,10 +63,20 @@ export default function ResidentsPage({ data }) {
                 />
                 <br />
                 <label htmlFor="property">Property Address: </label>
-                <input type="text" name="property" value={ values.property } onChange={updateValue} />
+                <input
+                  type="text"
+                  name="property"
+                  value={values.property}
+                  onChange={updateValue}
+                />
                 <br />
                 <label htmlFor="maintenanceReq">Describe your Issue:</label>
-                <input type="text" name="maintenanceReq" value={ values.maintenanceReq } onChange={updateValue}/>
+                <textarea
+                  className="maintenance-input"
+                  name="maintenanceReq"
+                  value={values.maintenanceReq}
+                  onChange={updateValue}
+                />
                 <br />
                 <div aria-live="polite" aria-atomic="true">
                   {error ? <p>Error: {error}</p> : ''}

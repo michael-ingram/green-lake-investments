@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import bg from '../assets/images/greenlakephoto.jpg';
+import bg from '../assets/images/background.jpg';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -52,6 +52,9 @@ const GlobalStyles = createGlobalStyle`
     color: var(--offwhite);
     text-align: center;
     margin: 0;
+    @media(max-width: 1000px){
+      font-size: 2rem;
+    }
   }
   .content-outer-container {
     background-color: var(--black);
@@ -80,6 +83,10 @@ const GlobalStyles = createGlobalStyle`
     color: black;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    @media(max-width: 1000px){
+      height: 50vh;
+      font-size: 1.5rem;
+    }
   }
   .content-p {
     margin: 0;

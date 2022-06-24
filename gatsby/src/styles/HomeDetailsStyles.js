@@ -46,17 +46,28 @@ const HomeDetailsStyles = styled.div`
     text-align: center;
   }
   .scrollable {
-    height: 60vh;
+    height: 50vh;
+    @media(max-width: 600px){
+      height: 35vh;
+    }
     overflow-y: scroll;
   }
   .image-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    @media(max-width: 600px){
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
   }
   .images {
     width: 200px;
     height: 200px;
+    @media(max-width: 600px){
+      width: 150px;
+      height: 150px;
+    }
     border-radius: 10px;
   }
   .home-details {
