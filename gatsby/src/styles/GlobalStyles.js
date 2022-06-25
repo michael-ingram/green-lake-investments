@@ -64,7 +64,7 @@ const GlobalStyles = createGlobalStyle`
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    margin: 20px 0 0 0;
+    margin: 40px 0 0 0;
     padding: 20px;
     max-height: 80%;
   }
