@@ -12,6 +12,7 @@ function generateMessageEmail({ name, email, messageInfo}) {
 }
 
 const transporter = nodemailer.createTransport({
+    service: 'Mandrill',
     host: process.env.MAIL_HOST,
     port: 587,
     auth: {
@@ -43,7 +44,7 @@ exports.handler = async (event, context) => {
 
     const info = await transporter.sendMail({
         from: `${body.name} <${body.email}>`,
-        to: 'greenlakeinvest@example.com',
+        to: 'greenlakeinvest@gmail.com',
         subject: 'New Message from Website',
         html: generateMessageEmail({
             name: body.name,

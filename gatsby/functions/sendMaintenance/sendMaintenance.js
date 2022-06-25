@@ -15,6 +15,7 @@ function generateOrderEmail({ name, email, property, phoneNumber, mainReq }) {
 }
 
 const transporter = nodemailer.createTransport({
+  service: 'Mandrill',
   host: process.env.MAIL_HOST,
   port: 587,
   auth: {
@@ -48,7 +49,7 @@ exports.handler = async (event, context) => {
 
   const info = await transporter.sendMail({
     from: `${body.name} <${body.email}>`,
-    to: 'greenlakeinvest@example.com',
+    to: 'greenlakeinvest@gmail.com',
     subject: 'New Maintenance Request',
     html: generateOrderEmail({
       name: body.name,
