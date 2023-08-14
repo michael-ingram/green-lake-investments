@@ -1,10 +1,10 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import ResidentPageStyles from '../styles/ResidentPageStyles';
 import SEO from '../components/SEO';
 import useForm from '../utils/useForm';
 import useInfo from '../utils/useInfo';
-import Success from "../components/Sucess";
+import Success from '../components/Sucess';
 
 export default function ResidentsPage({ data }) {
   const forms = data.forms.nodes;

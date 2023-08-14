@@ -23,7 +23,7 @@ export default function AvailableHomesPage({ data }) {
                     <div className="scrollable-content">
                         {homeLength > 0 && <HomeList homes={homes} />}
                         {homeLength === 0 &&
-                            <h2 className="no-properties">Sorry, There are no properties currently available</h2>
+                            <h3 className="no-properties">Sorry, there are no properties currently available</h3>
                         }
                     </div>
                 </div>
